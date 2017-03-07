@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_3 双飞翼</title>
+	<style type="text/css">
+		.page{
+			width:100%;
+			margin:0 auto;
+			border:none;
+			max-width: 1150px;
+			min-width:640px;
+		}
+		#left{
+			min-width:200px;
+			float:left;
+			margin-left:-100%;
+			padding:20px;
+		}
+		#main{
+			float:left;
+			width:100%;
+		}
+		.container{
+			margin: 0 140px 0 260px;
+			padding:0 20px;
+		}
+		#right{
+			float:right;
+			width:120px;
+			margin-left:-190px;
+		}
+		div{
+			border:1px #999 solid;
+		}
+		ul{
+			list-style: none;
+			padding: 10px 20px;
+		}
+		p
+		{
+			padding:10px;
+		}
+		#left img
+		{
+			float:left;
+		}
+		#left span{
+			padding-left:15px;
+		}
+		/*三栏显示*/
+		@media screen and (min-height:1000px){
+			#page{
+				width:1000px;
+			}
+			#main{
+				width:100%;
+				float:left;
+			}
+			#left{
+				width:200px;
+				float:left;
+			}
+			#right{
+				width:120px;
+				float:right;
+			}
+		}
+		/*/两栏显示*/
+		@media screen and (min-width:640px) and (max-width:999px){
+			#page{
+				width:640px;
+			}
+			#main{
+				width:100%;
+				float:right;
+			}
+			#left{
+				width:200px;
+				float:left;
+				margin-left:-100%;
+			}
+			.container{
+				margin: 0 0 0 200px;
+			}
+			#right{
+				width:100%;
+				float:none;
+				clear:both;
+				margin-left:0px;
+			}
+			/*left部分没调出来，我也很无奈呀！！！*/
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div id="main">   
+		<!--main内层加一个div，可以不适用相对定位，只使用浮动和负边距实现效果。双飞翼布局-->
+			<div class="container">
+				<h4>团队介绍</h4>
+				<p>HTML5的设计目的是为了在移动设备上支持多媒体。新的语法特征被引进以支持这一点，如video、audio和canvas标记。<br>HTML5还引进了新的功能，可以真正改变用户与文档的交互方式，包括：新的解析规则增强了灵活性<br>新属性<br>淘汰过时的或冗余的属性<br>一个HTML5文档到另一个文档间的拖放功能<br>离线编辑<br>信息传递的增强<br>详细的解析规则<br>多用途互联网邮件扩展（MIME）和协议处理程序注册<br>在SQL数据库中存储数据的通用标准（Web SQL）<br>HTML5在2007年被万维网联盟W3C新的工作组采用。这个工作组在2008年1月发布了HTML 5的首个公开草案。眼下，HTML5处于“呼吁审查”状态，W3C预期它将在2014年年底达到其最终状态。</p>
+			</div>
+		</div>
+		<div id="left">
+			<img src="logo.jpg" width="80px" height="80px"/ >
+			<span>团队名称</span>
+		</div>
+		<div id="right">
+			<ul>
+				<li>
+					<img src="logo.jpg" width="80px" height="80px">
+				</li>
+				<li>
+					<img src="logo.jpg" width="80px" height="80px">
+				</li>
+				<li>
+					<img src="logo.jpg" width="80px" height="80px">
+				</li>
+				<li>
+					<img src="logo.jpg" width="80px" height="80px">
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
