@@ -173,7 +173,7 @@ a:hover {text-decoration:underline;}
 }
 .mf_left .mfl_title{
 	height:120px;
-	border-bottom: 2px solid red;
+	border-bottom: 2px solid #11456b;
 }
 .mf_left .mfl_title span{
 	color:#f5e327;
@@ -281,7 +281,26 @@ a:hover {text-decoration:underline;}
 	font-size: 12px;
 }
 
-
+.mf_right .mfr_hello{
+	float:right;
+	width:30%;
+	font-size: 14px;
+	margin-top: -200px;
+}
+.mf_right .mfr_hello span:nth-child(1){
+	color:#d45d5c;
+	font-size: 78px;
+	float:left;
+	margin-left: -40px;
+}
+.mf_right .mfr_hello span:nth-child(3){
+	color:#d45d5c;
+	font-size: 78px;
+	float:right;
+}
+.mf_right .mfr_hello p{
+	padding-top: 20px;
+}
 
 /*-------------底部样式-------------*/
 .footer{
