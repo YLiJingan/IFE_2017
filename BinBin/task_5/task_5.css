@@ -1,0 +1,10 @@
+li{
+      background-color: red;
+      color:white;
+      font-size: 18px;
+      text-align: center;
+      display:inline-block;
+      padding: 10px;
+      line-height: 30px;
+      margin:5px;
+    }
