@@ -4,35 +4,30 @@
     var right_push = document.getElementsByTagName("input")[2];
     var left_pop = document.getElementsByTagName("input")[3];
     var right_pop = document.getElementsByTagName("input")[4];
+    var sort = document.getElementsByTagName("input")[5];
     /*插入操作*/
     function insert(dir){
       if(!isFull()){
         if(inp_num.value == ""){
         alert("请输入插入的值");
       }
-      else if(isNaN(inp_num.value)){
-        alert("请输入一个数字");
+      else if(isNaN(inp_num.value) || inp_num.value<10 || inp_num.value>100){
+        alert("请输入一个10-100以内的数字");
       }else{
-        if(inp_num.value<10 || inp_num.value>100){
-          alert("输入限制是10-100之间");
-        }
-        else{
           var li =document.createElement("li");
-          li.innerHTML = inp_num.value;
-          li.style.height = disHeight(li.innerHTML,li);
+          li.style.height = inp_num.value+'px';      /*直接将iput的值作为li的高度*/
+          li.style.marginTop = (100 - inp_num.value) + "px";
           if(dir == "left"){
-            num_group.insertBefore(li,num_group.firstChild);
-          }
+            num_group.insertBefore(li,num_group.firstChild);     /*在ul的第一个子节点前插入新元素*/
+          } 
           else if(dir == "right"){
-            li.innerHTML = inp_num.value;
-            num_group.append(li);
+            num_group.append(li);                    /*在ul的最后一个子节点后插入新元素*/
           }
         }
-      }
-        inp_num.value = "";
+        inp_num.value = "";           /*完成一次输入之后的复位操作*/
         inp_num.focus();
-      }  
-    }
+      } 
+    } 
     /*删除操作*/
     function pop(dir){
       if(num_group.childNodes.length<0){
@@ -59,13 +54,11 @@
       }
       return false;
     }
-    /*动态显示li的高度*/
-    function disHeight(value,node){
-      return node.style.height = "(value*0.5)px"; 
-    }
+    /*排序*/
+
     window.onload = function(){
-     /* left_push.addEventListener("click",insert("left"),false);     //为什么直接有alert弹出
-      right_push.addEventListener("click",insert("right"),false);*/
+     /* left_push.addEventListener("click",function(){insert("left")},false); 
+      right_push.addEventListener("click",function(){insert("right")},false);*/
       left_push.onclick = function(){
         insert("left");
       };
@@ -78,4 +71,7 @@
       right_pop.onclick = function(){
         pop("right");
       };
+      sort.onclick = function(){
+        sort_Bubble();
+      }
     }()
