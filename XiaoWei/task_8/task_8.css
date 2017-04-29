@@ -1,0 +1,99 @@
+
+body{
+	margin:0;
+	padding:0;
+	font-size:0.5em;
+}
+
+*{
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+}
+
+.container{
+	margin-left:auto;
+	margin-right:auto;
+	padding-left: 15px;
+	padding-right:15px;
+	min-width: 450px;
+}
+
+.row{
+	margin-left: -15PX;
+	margin-right: -15px;
+}
+
+.rowStyle{
+	padding-top: 20px;
+}
+.boxStyle{
+	position:relative;
+	border:1px #999 solid;
+	background-color: #eee;
+	height:50px;
+	padding-right:15px;
+	padding-left:15px;
+	margin-left:20px;
+	margin-bottom:20px;
+	text-align: center;
+	line-height: 50px;
+}
+
+/*当屏幕大于768px时*/
+@media screen and (min-width: 768px){
+	.container{
+		width:750px;
+	}
+	.col_md_1, .col_md_2, .col_md_3, .col_md_4, .col_md_6{
+		float:left;
+	}
+	.col_md_4{
+		width:30%;
+	}
+	.col_md_3{
+		width:23%;
+	}
+	.col_md_6{
+		width:44%;
+	}
+	.col_md_1{
+		width:7%;
+	}
+	.col_md_2{
+		width:14%;
+	}
+}
+
+/*当屏幕小于768px时*/
+@media screen and (max-width:768px){
+	.container{
+		width:650px;
+	}
+	.col_sm_1, .col_sm_2, .col_sm_3, .col_sm_4, .col_sm_6, .col_sm_12, .col_sm_8{
+		float:left;
+	}
+	.col_sm_4{
+		width:30%;
+	}
+	.col_sm_3{
+		width:21.5%;
+	}
+	.col_sm_6{
+		width:46%;
+	}
+	.col_sm_12{
+		width:95%;
+	}
+	.col_sm_2{
+		width:16%;
+	}
+	.col_sm_8{
+		width:57%;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}

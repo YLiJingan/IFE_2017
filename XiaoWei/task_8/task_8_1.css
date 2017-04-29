@@ -1,0 +1,54 @@
+
+body{
+	margin:0;
+	padding:0;
+	font-size:0.5em;
+}
+
+.boxStyle{
+	box-sizing: border-box;       /*重要  box-sizing的默认值是content-box*/
+	border: 1px solid #999999;
+	height:50px;
+	background-color:#eeeeee;
+	line-height: 50px;
+	text-align:center;
+	margin:10px;
+	float:left;
+}
+
+@media screen and (min-width: 768px){
+	.col_md_1{
+		width:calc(8.33% - 20px);     
+	}
+	.col_md_2{
+		width:calc(16.66% - 20px);
+	}
+	.col_md_3{
+		width: calc(25% - 20px);
+	}
+	
+	.col_md_4{
+		width: calc(33.333% - 20px);
+	}
+	
+	.col_md_6{
+		width: calc(50% - 20px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.col_sm_2{
+		width: calc( 16.666% - 20px);
+	}
+	.col_sm_3{
+		width: calc( 25% - 20px);
+	}
+	.col_sm_6{
+		width: calc( 50% - 20px);
+	}
+	.col_sm_8{
+		width: calc( 66.666% - 20px);
+	}
+	.col_sm_12{
+		width: calc( 100% - 20px);
+	}

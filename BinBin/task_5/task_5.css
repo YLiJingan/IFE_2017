@@ -1,0 +1,13 @@
+ul{
+	margin: 10px;
+	height: 100px;
+}
+li{
+    display: inline-block;
+	width: 20px;
+	margin:0 1px;
+	background-color: red;
+	cursor: pointer;
+	position: relative;
+	bottom:0px;
+}
