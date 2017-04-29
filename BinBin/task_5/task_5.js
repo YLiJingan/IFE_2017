@@ -54,7 +54,23 @@
       }
       return false;
     }
-    /*排序*/
+    /*冒泡排序*/
+    function bubbleSort(){
+        var i = document.getElementsByTagName("li").length;
+        var numlist = document.getElementsByTagName("li");
+        var temp;
+        //假设有i个元素，则在最复杂情况下要进行i-1次循环遍历，使用while循环语句共遍历了i次;
+        while(i>0){
+          for (var j = 0; j < i-1; j++) {
+            if (numlist[j].style.height > numlist[j+1].style.height) {
+              temp = numlist[j].style.height;
+              numlist[j].style.height = numlist[j+1].style.height;
+              numlist[j+1].style.height = temp;
+            }
+          }
+          i--;
+        }
+    }
 
     window.onload = function(){
      /* left_push.addEventListener("click",function(){insert("left")},false); 
@@ -72,6 +88,6 @@
         pop("right");
       };
       sort.onclick = function(){
-        sort_Bubble();
-      }
+        bubbleSort();
+      };
     }()
