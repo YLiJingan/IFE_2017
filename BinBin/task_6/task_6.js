@@ -1,33 +1,34 @@
     var inp_num = document.getElementById("num");
     var num_group = document.getElementById("num_group");
-    var left_push = document.getElementsByTagName("input")[1];
-    var right_push = document.getElementsByTagName("input")[2];
-    var left_pop = document.getElementsByTagName("input")[3];
-    var right_pop = document.getElementsByTagName("input")[4];
-    var sort = document.getElementsByTagName("input")[5];
+    var left_push = document.getElementsByTagName("input")[0];
+    var right_push = document.getElementsByTagName("input")[1];
+    var left_pop = document.getElementsByTagName("input")[2];
+    var right_pop = document.getElementsByTagName("input")[3];
+    var search_val = document.getElementsByTagName("input")[4];
+    var search_btn = document.getElementsByTagName("input")[5];
+    var sort = document.getElementById("sort");
     /*插入操作*/
     function insert(dir){
-      if(!isFull()){
-        if(inp_num.value == ""){
-        alert("请输入插入的值");
-      }
-      else if(isNaN(inp_num.value) || inp_num.value<10 || inp_num.value>100){
-        alert("请输入一个10-100以内的数字");
-      }else{
-          var li =document.createElement("li");
-          li.style.height = inp_num.value+'px';      /*直接将iput的值作为li的高度*/
-          li.style.marginTop = (100 - inp_num.value) + "px";
-          if(dir == "left"){
-            num_group.insertBefore(li,num_group.firstChild);     /*在ul的第一个子节点前插入新元素*/
-          } 
-          else if(dir == "right"){
-            num_group.append(li);                    /*在ul的最后一个子节点后插入新元素*/
-          }
+      if(inp_num.value == ""){
+      alert("请输入插入的值");
+       }
+      else{
+          var str = inp_num.value;            /*输入 可能是多个内容*/
+          var getValue=str.split(/,|，|、|\s|\n|\t|\r/);
+          for(var i=0;i<getValue.length;i++){
+            var li = document.createElement("li");
+            li.innerHTML = getValue[i];
+            if(dir == "left"){
+              num_group.insertBefore(li,num_group.childNodes[0]);     /*在ul的第一个子节点前插入新元素*/
+            } 
+            else if(dir == "right"){
+              num_group.append(li);                    /*在ul的最后一个子节点后插入新元素*/
+            }
+          }                                  
         }
         inp_num.value = "";           /*完成一次输入之后的复位操作*/
         inp_num.focus();
       } 
-    } 
     /*删除操作*/
     function pop(dir){
       if(num_group.childNodes.length<0){
@@ -46,14 +47,7 @@
         }
       }
     }
-    /*判断队列是否溢出*/
-    function isFull(){
-      if(num_group.childNodes.length>60){
-        alert("最多显示60个队列元素");
-        return true;
-      }
-      return false;
-    }
+
     /*冒泡排序*/
     function bubbleSort(){
         var i = document.getElementsByTagName("li").length;
@@ -62,14 +56,23 @@
         //假设有i个元素，则在最复杂情况下要进行i-1次循环遍历，使用while循环语句共遍历了i次;
         while(i>0){
           for (var j = 0; j < i-1; j++) {
-            if (numlist[j].style.height > numlist[j+1].style.height) {
-              temp = numlist[j].style.height;
-              numlist[j].style.height = numlist[j+1].style.height;
-              numlist[j+1].style.height = temp;
+            if (numlist[j].innerHTML > numlist[j+1].innerHTML) {
+              temp = numlist[j].innerHTML;
+              numlist[j].innerHTML = numlist[j+1].innerHTML;
+              numlist[j+1].innerHTML = temp;
             }
           }
           i--;
         }
+    }
+    /*模糊查询*/
+    function search(){
+      var search = eval('/'+search_val+'/g');
+      for(var i=0;i<num_group.childNodes.length;i++){
+        var str = num_group.childNodes[i].innerHTML;
+        str = str.replace(search,"<li class='dim_li'>"+search_val+"</li>");
+        num_group.childNodes[i].innerHTML = str;
+      }
     }
 
     window.onload = function(){
@@ -90,4 +93,7 @@
       sort.onclick = function(){
         bubbleSort();
       };
+      search_btn.onclick = function(){
+        search();
+      }
     }()

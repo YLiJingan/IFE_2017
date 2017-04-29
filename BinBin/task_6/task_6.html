@@ -6,14 +6,18 @@
   <link rel="stylesheet" type="text/css" href="task_6.css">
 </head>
 <body>
-  <textarea id="num"></textarea>
-  <input type="button" name="left_push" class="btn" value="左侧入">
-  <input type="button" name="right_push" class="btn" value="右侧入">
-  <input type="button" name="left_pop" class="btn" value="左侧出">
-  <input type="button" name="right_pop" class="btn" value="右侧出">
-  <input type="button" name="sort" class="sort" value="排序">
-  <input type="text" name="search">
-  <input type="button" name="search_btn" value="搜索">
+  <div class="btn_group">
+      <input type="button" name="left_push" class="btn" value="左侧入">
+      <input type="button" name="right_push" class="btn" value="右侧入">
+      <input type="button" name="left_pop" class="btn" value="左侧出">
+      <input type="button" name="right_pop" class="btn" value="右侧出">
+      <input type="text" name="search" placeholder="请输入">
+      <input type="button" name="search_btn" value="搜索" autofocus="autofocus">
+  </div>
+  <div class="source">
+      <textarea id="num"></textarea>
+      <input type="button" name="sort" id="sort" value="排序">
+  </div>
   <ul id="num_group"> 
   </ul>
   <script type="text/javascript" src="task_6.js"></script>
