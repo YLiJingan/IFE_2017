@@ -14,15 +14,17 @@
        }
       else{
           var str = inp_num.value;            /*输入 可能是多个内容*/
-          var getValue=str.split(/,|，|、|\s|\n|\t|\r/);
+          var getValue=str.split(/,|，|、|\s|\n|\t|\r|/);   /*当输入多个分隔符时未处理*/
           for(var i=0;i<getValue.length;i++){
             var li = document.createElement("li");
             li.innerHTML = getValue[i];
             if(dir == "left"){
               num_group.insertBefore(li,num_group.childNodes[0]);     /*在ul的第一个子节点前插入新元素*/
             } 
-            else if(dir == "right"){
-              num_group.append(li);                    /*在ul的最后一个子节点后插入新元素*/
+            else if(dir == "right"){                
+              num_group.insertBefore(li,num_group.lastChild);         /*在ul的最后一个子节点后插入新元素*/
+              /*num_group.appendChild(li);     将新节点追加到子节点列表的末尾*/
+              /* num_group.append(li);         会出现text节点 不是li*/
             }
           }                                  
         }
@@ -67,17 +69,29 @@
     }
     /*模糊查询*/
     function search(){
-      var search = eval('/'+search_val+'/g');
-      for(var i=0;i<num_group.childNodes.length;i++){
-        var str = num_group.childNodes[i].innerHTML;
-        str = str.replace(search,"<li class='dim_li'>"+search_val+"</li>");
-        num_group.childNodes[i].innerHTML = str;
-      }
+        var search = search_val.value;
+        var len = num_group.childNodes.length;        /*len默认为1*/
+        if(len!=1){
+            for(var i=0;i<len-1;i++){
+              if(num_group.childNodes[i].innerHTML.indexOf(search)>=0){
+                num_group.childNodes[i].className="dim_li";
+              }
+            }
+            /*for(var i=0;i<len-1;i++){      
+            var str = num_group.childNodes[i].innerHTML;
+            alert(num_group.childNodes[i].innerHTML);
+            str = str.replace(search,"<li style='color:blue;font-size:18px;'>"+search+"</li>");
+            num_group.childNodes[i].innerHTML = str;
+          }*/
+        }
+        else{
+          alert("请先在队列中插入值");
+        }    
     }
 
     window.onload = function(){
      /* left_push.addEventListener("click",function(){insert("left")},false); 
-      right_push.addEventListener("click",function(){insert("right")},false);*/
+      right_push.addEventListener("click",function(){insert("right")},false);  注意写法*/      
       left_push.onclick = function(){
         insert("left");
       };
@@ -96,4 +110,5 @@
       search_btn.onclick = function(){
         search();
       }
+      /*每个按钮都添加了点击事件，可以使用事件代理进行优化*/
     }()
