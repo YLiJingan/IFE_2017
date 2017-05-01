@@ -14,7 +14,7 @@
        }
       else{
           var str = inp_num.value;            /*输入 可能是多个内容*/
-          var getValue=str.split(/,|，|、|\s|\n|\t|\r|/);   /*当输入多个分隔符时未处理*/
+          var getValue=str.split(/,|，|、|\s|\n|\t|\r/);   /*当输入多个分隔符时未处理*/
           for(var i=0;i<getValue.length;i++){
             var li = document.createElement("li");
             li.innerHTML = getValue[i];
