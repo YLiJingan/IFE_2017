@@ -17,6 +17,8 @@ li{
 .dim_li{
 	background-color:#eee;
 	color:red;
+	font-size: 20px;
+	font-style: bold;
 }
 .btn_group{
 	height:50px;
