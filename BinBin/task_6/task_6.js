@@ -88,6 +88,15 @@
           alert("请先在队列中插入值");
         }    
     }
+    /*使用事件代理  点击li删除li*/
+      function liOut(){
+        num_group.addEventListener("click",function(e){      /*给li的父元素添加点击事件  e事件对象*/
+          var event = window.event || e;                     
+          if(event.target.nodeName.toLowerCase() == "li"){   /*e.target返回事件的目标节点*/
+            num_group.removeChild(event.target);
+          }
+        })
+      }
 
     window.onload = function(){
      /* left_push.addEventListener("click",function(){insert("left")},false); 
@@ -104,11 +113,12 @@
       right_pop.onclick = function(){
         pop("right");
       };
+      //sort.onclick = bubbleSort;
       sort.onclick = function(){
         bubbleSort();
-      };
+      }
       search_btn.onclick = function(){
         search();
       }
-      /*每个按钮都添加了点击事件，可以使用事件代理进行优化*/
+      liOut();
     }()
