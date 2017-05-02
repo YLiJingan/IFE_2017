@@ -1,0 +1,36 @@
+
+.container{
+	display:flex;
+	align-items: center;               /*垂直对齐方式*/
+	justify-content:space-between;     /*两端对齐*/
+	border:1px grey solid;
+	padding:20px;
+}
+.item{                           /*弹性容器内的元素自动成为弹性item*/
+	width: 150px;
+	border:1px solid #f00;
+	margin-bottom: 10px;
+}
+.item1{
+	height:120px;
+}
+.item2{
+	height:100px;
+}
+.item3{
+	height:40px;
+}
+.item4{
+	height:200px;
+	border-color:#0f0;
+}
+@media screen and (max-width: 640px){
+	.container{
+		display:flex;
+		align-items: flex-start;   /*沿交叉轴开始对齐*/
+		flex-wrap: wrap;
+	}
+	.item4{
+		order: -1;      /*将item4第一个显示*/
+	}
+}
