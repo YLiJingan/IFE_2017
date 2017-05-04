@@ -10,7 +10,7 @@ window.onload =(function(){
 	var postbtn = document.getElementById("postorder");
 	/*遍历过程的显示*/
 	function show(){
-		for(var i=0;i<arr.length;i++){                //setTimeout模拟setInterval
+		/*for(var i=0;i<arr.length;i++){                //setTimeout模拟setInterval
 			setTimeout(function(i){
 				return function(){
 					if(i == arr.length-1){
@@ -23,28 +23,24 @@ window.onload =(function(){
 					last = arr[i];
 				}
 			}(i),i*1000);
-		}
-		/*var timer = setInterval(function(){
-			var i = 0;
+		}*/
+		var i = 0;
+		timer = setInterval(function(){
 			i++;
-			if(i < arr.length){
-				arr[i].style.background = "red";
-				arr[i-1].style.background = "white";
-			}
-			else{
+			if(i == arr.length-1){
+				flag = false;
 				clearInterval(timer);
-				arr[arr.length-1].style.background = "white";
 			}
-		},500);*/
+			if(last){
+				last.style.background = "#fff";
+			}
+				arr[i].style.background = "red";
+				last = arr[i];
+		},1000);
 	}
-	/*function reset(){
-		clearInterval(timer);
-		var divList = document.getElementsByTagName("div");
-		for(var i=0;i < divList.length;i++){
-			divList[i].style.background = "#fff";
-		}
-	}*/
 	function reset(){
+		arr=[];
+		clearInterval(timer);
 		if(last){
 			last.style.background = "#fff";
 		}
@@ -68,8 +64,8 @@ window.onload =(function(){
 	/*后序遍历 左右父*/
 	function postorder(node){
 		if(node !== null){
-			inorder(node.firstElementChild);
-			inorder(node.lastElementChild);
+			postorder(node.firstElementChild);
+			postorder(node.lastElementChild);
 			arr.push(node);
 		}
 	}
@@ -98,5 +94,30 @@ window.onload =(function(){
 			show();
 		}
 	}
+	/*使用事件代理为按钮添加事件
+	function delegate(){
+		btn.onclick = function(e){
+			var event = e || window.event;
+			var target = e.target || e.srcElement;
+			if(target.nodeName.toLowerCase = "input"){
+				reset();
+				switch (target.id){
+					case 'preorder':
+						preorder(root);
+						break;
+					case 'inorder':
+						inorder(root);
+						break;
+					case 'postorder':
+						postorder(root);
+						break;
+					default:
+						show();
+						break;
+				}
+			}
+		}
+	}
+	delegate();*/
 
 })()
