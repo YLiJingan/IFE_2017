@@ -132,9 +132,7 @@ window.onload =(function(){
 	/*changeClick();
 	changeAppend();*/
     var targetEle = changeColor();
-    
-    del_btn.onclick = function(){     
-    alert(targetEle);           
+    del_btn.onclick = function(){             
 		targetEle.remove(targetEle.childNodes);
 	}
     append_btn.onclick = function(){
