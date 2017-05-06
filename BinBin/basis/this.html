@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>this</title>
+</head>
+<body>
+	<h1>this</h1>
+	<script type="text/javascript">
+		// var angryyan = {
+		// 	name:'yanlijing',
+		// 	birth:1993,
+		// 	age:function(){
+		// 		var year = new Date().getFullYear();
+		// 		alert(year-this.birth);
+		// 	}
+		// }
+		// angryyan.age();
+		// age();    //直接调用age函数，age is undefinded
+
+		// var angryyan = {
+		// 	name:'yanlijing',
+		// 	birth:1993,
+		// 	age:function(){
+		// 		function getAge(){
+		// 			var year = new Date().getFullYear();
+		// 			alert(year-this.birth);        //此时this指向window对象
+		// 		}
+		// 		return getAge();
+		// 	}
+		// }
+
+		// angryyan.age();         //NAN
+
+		// var angryyan = {
+		// 	name:'yanlijing',
+		// 	birth:1993,
+		// 	age:function(){
+		// 		var that = this;                    //this指向angryyan对象  保存在that变量中
+		// 		function getAge(){
+		// 			var year = new Date().getFullYear();
+		// 			alert(year-that.birth);     
+		// 		}
+		// 		return getAge();
+		// 	}
+		// }
+
+		//angryyan.age();         //24
+
+		
+		// function getAge(){
+		// 	var year = new Date().getFullYear();
+		// 	alert(year-this.birth); 
+		// }
+
+		// var angryyan = {
+		// 	name:'yanlijing',
+		// 	birth:1993,
+		// 	age:getAge
+		// };
+		// angryyan.age();         //24
+		// getAge.apply(angryyan,[]);   //对象冒充 冒充对象angryyan执行getAge方法
+
+		/*统计调用parseInt()的次数*/
+		var count = 0;
+		var oldParseInt = parseInt;    //保存原函数
+
+		window.parseInt = function(){
+			count += 1;
+			return oldParseInt.apply(null,arguments);         //调用原函数  第一个函数为null,this指向window
+		}
+		parseInt('10');
+		parseInt('20');
+		parseInt('wee');
+		alert(count);
+	</script>
+</body>
+</html>
