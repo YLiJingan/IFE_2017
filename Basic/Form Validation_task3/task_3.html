@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_3</title>
+	<style type="text/css">
+		.location{
+			display:table;
+			margin:0 auto;
+			padding-top: 100px;
+			box-sizing: border-box;
+		}
+		input[type="radio"]{
+			padding-right: 20px;
+		}
+		input[type="text"]{
+			display:none;
+			margin-top: 20px;
+			width:220px;
+			height:28px;
+			border-radius: 6px;
+			border:1px grey solid;
+			padding-left: 5px;
+		}
+		.part1{
+			margin-top: 20px;
+		}
+		.part1 select{
+			margin-right: 20px;
+			width:120px;
+			border-radius: 6px;
+			height:28px;
+		}
+		label{
+			margin-right: 70px;
+		}
+	</style>
+</head>
+<body>
+	<div class="location">
+		<form>
+			<label><input type="radio" name="province" checked/>在校生</label>
+			<label><input type="radio" name="province" />非在校生</label>
+			<div class="part1">
+				<select id="city">
+					<option>--请选择--</option>
+					<option>陕西</option>
+					<option>北京</option>
+				</select>
+				<select id="uni">
+					<option>--请选择--</option>
+				</select>
+
+			</div>
+			<input type="text" name="info" placeholder="请输入公司名称" />
+		</form>
+	</div>
+	<script>
+		var radio1 = document.getElementsByTagName("input")[0];
+		var radio2 = document.getElementsByTagName("input")[1];
+		var part1 = document.getElementsByClassName('part1')[0];
+		var part2 = document.getElementsByTagName("input")[2];
+		radio1.onclick = function(){
+			part1.style.display = 'block';
+			part2.style.display = 'none';
+		}
+		radio2.onclick = function(){
+			part2.style.display = 'block';
+			part1.style.display = 'none';
+		}
+
+		function addOption(txt){
+        var opt= document.createElement("option");
+        opt.text = txt;
+        uni.options.add(opt);
+	    }
+
+	   var city = document.getElementById("city");
+	   city.addEventListener("change",function(){
+	    var uni =document.getElementById("uni");
+	     var uniLen=uni.options.length;
+	     if(uniLen>1){
+	        for(var i=0;i<uniLen;i++){uni.options.remove(1);}
+	     }
+	    
+	    city_value= city.value;
+	    if(city_value=="北京"){
+	        addOption("北京大学");
+	        addOption("清华大学");
+	    }
+	    if(city_value=="陕西"){
+	        addOption("西安石油大学");
+	        addOption("西安理工大学");
+	        addOption("西安工业大学");
+	        addOption("西安交通大学");
+	    }
+	},false);
+	</script>
+</body>
+</html>
