@@ -65,7 +65,7 @@ window.onload = function(){
 				mesg_repwd.innerHTML = '两次密码输入不一致';
 				mesg_repwd.style.color = 'red';
 			}else{
-				pwd.style.border = "1px green solid";
+				repwd.style.border = "1px green solid";
 				mesg_repwd.innerHTML = '密码正确';
 				mesg_repwd.style.color = 'green';
 			}			
@@ -137,11 +137,17 @@ window.onload = function(){
 	phone.onfocus = function(){
 		mesg_phone.style.display = 'block';
 	}
-	btn.oncilck = function(){
-		nameFun();
-		pwdFun();
-		repwdFun();
-		emailFun();
-		phoneFun();
-	}
-}
+	btn.addEventListener('click',function(){
+        var n = nameFun();
+        var p = pwdFun();
+        var pp = repwdFun();
+        var e = emailFun();
+        var t = phoneFun();
+        if (n && p && pp && e && t) {
+            alert('校验通过，全部输入正确!');
+        } 
+        else {
+            alert('校验未通过，输入有误!');
+        }
+    })
+}()
