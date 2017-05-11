@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>slideshow</title>
+	<style type="text/css">
+		.stage{
+			perspective: 800px;
+		}
+		.container{
+			transform:preserve-3d;
+		}
+		img{
+			position:absolute;
+			width:300px;
+			height:200px;
+			bottom:0px;
+			transition: opacity 1s, transform 1s;
+		}
+		img:nth-child(1) {
+			 transform: rotateY(0deg);
+			 -ms-transform: rotateY(0deg);  /*IE9*/
+			 -moz-transform: rotateY(0deg); /*FF*/
+			 -webkit-transform: rotateY(0deg);  /*Safari Chrome*/
+			 -o-transform: rotateY(0deg);   /*Opera*/ 
+			 translateZ(195.839px);
+		}
+		img:nth-child(2) { 
+			transform: rotateY(40deg);
+			-ms-transform: rotateY(40deg);  /*IE9*/
+			-moz-transform: rotateY(40deg); /*FF*/
+			-webkit-transform: rotateY(40deg);  /*Safari Chrome*/
+			-o-transform: rotateY(40deg);   /*Opera*/ 
+			translateZ(195.839px);
+		 }
+		img:nth-child(3) { 
+			transform: rotateY(80deg); 
+			-ms-transform: rotateY(80deg);  /*IE9*/
+			-moz-transform: rotateY(80deg); /*FF*/
+			-webkit-transform: rotateY(80deg);  /*Safari Chrome*/
+			-o-transform: rotateY(80deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(4) { 
+			transform: rotateY(120deg);
+			-ms-transform: rotateY(120deg);  /*IE9*/
+			-moz-transform: rotateY(120deg); /*FF*/
+			-webkit-transform: rotateY(120deg);  /*Safari Chrome*/
+			-o-transform: rotateY(120deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(5) { 
+			transform: rotateY(160deg);
+			-ms-transform: rotateY(160deg);  /*IE9*/
+			-moz-transform: rotateY(160deg); /*FF*/
+			-webkit-transform: rotateY(160deg);  /*Safari Chrome*/
+			-o-transform: rotateY(160deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(6) { 
+			transform: rotateY(200deg); 
+			-ms-transform: rotateY(200deg);  /*IE9*/
+			-moz-transform: rotateY(200deg); /*FF*/
+			-webkit-transform: rotateY(200deg);  /*Safari Chrome*/
+			-o-transform: rotateY(200deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(7) { 
+			transform: rotateY(240deg);
+			-ms-transform: rotateY(240deg);  /*IE9*/
+			-moz-transform: rotateY(240deg); /*FF*/
+			-webkit-transform: rotateY(240deg);  /*Safari Chrome*/
+			-o-transform: rotateY(240deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(8) { 
+			transform: rotateY(280deg); 
+			-ms-transform: rotateY(280deg);  /*IE9*/
+			-moz-transform: rotateY(280deg); /*FF*/
+			-webkit-transform: rotateY(280deg);  /*Safari Chrome*/
+			-o-transform: rotateY(280deg); 
+			translateZ(195.839px);
+		}
+		img:nth-child(9) { 
+			transform: rotateY(320deg);
+			-ms-transform: rotateY(320deg);  /*IE9*/
+			-moz-transform: rotateY(320deg); /*FF*/
+			-webkit-transform: rotateY(320deg);  /*Safari Chrome*/
+			-o-transform: rotateY(320deg); 
+			translateZ(195.839px); 
+		}
+	</style>
+</head>
+<body>
+	<div class="stage">
+		<div class="container">
+			<img src="img/pica.jpg"/>
+			<img src="img/picb.jpg"/>
+			<img src="img/picc.jpg"/>
+			<img src="img/picd.jpg"/>
+			<img src="img/pice.jpg"/>
+			<img src="img/picf.jpg"/>
+			<img src="img/picg.jpg"/>
+			<img src="img/pich.jpg"/>
+			<img src="img/pici.jpg"/>
+		</div>
+	</div>
+</body>
+</html>

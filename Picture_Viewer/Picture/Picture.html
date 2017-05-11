@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+	<img id="myimg" src="img/pica.jpg" style="height:400px;width:500px;"><br />
+	<div style="margin-top:20px">
+		<button id="previousbutton" style="height:30px;width:80px;margin-left:50px;margin-right:100px;">上一张</button>
+		<button id="nextbutton" style="height:30px;width:80px;">下一张</button>
+    </div>
+<script>
+	var imgName = new Array("pica.jpg","picb.jpg","picc.jpg","picd.jpg","pice.jpg","picf.jpg");
+	/*-------------------------上一页 下一页 图片浏览器---------------------------*/
+    var foot = 1;   //操作的脚标
+	var pre = document.getElementById("previousbutton");  //取得上一页按钮元素
+	var nex = document.getElementById("nextbutton");      //取得下一页按钮元素
+	var myimg = document.getElementById("myimg");
+	pre.addEventListener("click",function(){               //"上一页"按钮添加事件
+		if(foot < 0){
+			foot = imgName.length-1;
+		}
+		myimg.src = 'img/' + imgName[foot --];
+	},false); 
+
+	nex.addEventListener("click",function(){                  //"下一页"按钮添加事件
+		if(foot >= imgName.length){
+			foot = 0;
+		}
+		myimg.src = 'img/' + imgName[foot ++];
+	},false);
+	
+
+	/*-------------------------------------图片幻灯片----------------------------*/
+	var foot = 0;
+	function setPic(){
+		var img = document.getElementById("myimg");
+		img.src = 'img/' + imgName[foot++];
+		if (foot >= imgName.length){
+			foot = 0;  //从0开始
+		}
+		setTimeout(setPic,10000);
+	}
+    setPic();
+</script>
+</body>
+</html>
+
