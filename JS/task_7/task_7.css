@@ -1,0 +1,31 @@
+div{
+	border:1px gray solid;
+}
+.root{
+	display:flex;
+	justify-content:space-around;
+	align-items: center;
+	width:80%;
+	margin:0 auto;
+	min-width: 470px !important;
+	margin-top: 30px;
+}
+.root div{
+	margin: 18px;
+	flex-grow: 1;
+}
+.container{
+	display:flex;
+	flex-direction: row;
+	justify-content:space-around;
+}
+.btn_group{
+	border:none;
+	width:30%;
+	margin:0 auto;
+	margin-top: 50px;
+}
+.btn_group input{
+	display:inline-block;
+	margin:10px;
+}

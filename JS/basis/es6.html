@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>闭包 箭头函数 generator</title>
+</head>
+<body>
+	<h1>闭包</h1>
+	<h1>箭头函数</h1>
+	<h1>generator(生成器)</h1>
+	<script type="text/javascript">
+		/*闭包*/
+		// function sum(arr){                       //调用sum函数立即求和
+		// 	return arr.reduce(function(x,y){
+		// 		return x+y;
+		// 	});
+		// }
+		// var arr =[1,2,3];
+		// alert(sum(arr));
+
+		// function lazy_sum(arr){
+		// 	var sum = function(){
+		// 		return arr.reduce(function(x,y){
+		// 			return x+y;
+		// 		});
+		// 	};
+		// 	return sum;
+		// }
+
+		// var arr = [1,2,3,4];
+		// var f = lazy_sum(arr);   //返回sum函数
+		// alert(f());              //执行sum
+
+		// function count(){
+		// 	var arr = [];
+		// 	for(var i=0;i<=3;i++){
+		// 		arr.push(function(){
+		// 			return i*i;
+		// 		});
+		// 	}
+		// 	return arr;
+		// }
+
+		// var result = count();  //return arr=[function,function,function,function]for循环已经执行完毕，此时i已经是4*/
+		// var f1 = result[0];     //f1 = function
+		// var f2 = result[1];
+		// var f3 = result[2];
+		// alert(f1());            //执行function  i已经是4了，所以返回全部时16
+		// alert(f2());
+		// alert(f3());
+
+		// function count(){
+		// 	var arr = [];
+		// 	for(var i=1;i<=3;i++){
+		// 		arr.push((function(n){
+		// 			return function(){
+		// 				return n*n;
+		// 			}
+		// 		})(i));             //创建一个匿名函数并立即执行 i作为参数
+		// 	}
+		// 	return arr;
+		// }
+
+		// var result = count();
+		// var f1 = result[0];
+		// var f2 = result[1];
+		// var f3 = result[2];
+		// alert(f1());   //1
+		// alert(f2());   //4
+		// alert(f3());   //9
+
+		// function create_counter(initial){
+		// 	var x = initial || 0;
+		// 	return {
+		// 		inc:function(){
+		// 			x+=1;              //借助闭包封装了一个私有变量
+		// 			return x;
+		// 		}
+		// 	}
+		// }
+		// var a = create_counter(0);   //从外部根本无法访问到变量x。闭包就是携带状态的函数，并且他的状态完全对外隐藏
+		// for(var i=0;i<5;i++){
+		// 	alert(a.inc());
+		// }
+
+		/*箭头函数相当于匿名函数。
+		箭头函数有两种形式，一种是  x=> x*x(省略了{。。。}和return) 相当于 function(x){return x*x;}
+		包含多条语句时，不能省略{。。。}和return
+		当参数不是一个的时候，需要用括号括起来。没有参数或者参数大于1的情况
+		箭头函数修复了this的指向。箭头函数内部的this是词法作用域，有上下文决定*/
+
+		// var box = {
+		// 	birth:1993,
+		// 	getAge:function(){
+		// 		var b = this.birth;         //1993
+		// 		var fn = ()=>new Date().getFullYear() - this.birth; 箭头函数修复了在函数内部的函数this指向window或undefined  此时this指向box对象
+		// 		alert(fn());
+		// 	}
+		// }
+
+		// box.getAge();
+		// /*this在箭头函数中已经按照词法作用域绑定了，所以用call或者apply调用见图函数进行绑定，第一个参数会忽略*/
+
+		/*generator由函数function* 定义，并且除了return语句，还可以用yield返回多次*/
+		// function fib(max){
+		// 	var t,a=0,b=1,arr=[0,1];
+		// 	while(arr.length < max){
+		// 		t = a + b;
+		// 		a = b;
+		// 		b = t;
+		// 		arr.push(t);
+		// 	}
+		// 	return arr;             //函数只能返回一次，所以必须返回一个数组
+		// }
+
+		// alert(fib(9));   
+
+		// function* fib(max){
+		// 	var t,a=0,b=1,n=1;
+		// 	while(n < max){
+		// 		yield a;     //返回一个对象{value:x,done:true/false}   value就是yield的返回值，done表示generator是否已经执行结束
+		// 		t = a+b;
+		// 		a = b ;
+		// 		b =t;
+		// 		n++;
+		// 	}
+		// 	return a;
+		// }   
+		// var f = fib(10);   //只是创建了一个generator对象，并没有去执行它
+		// alert(f.next().valueOf());
+
+		function next_id(){
+			var current_id = 0;
+			return function(){
+				return current_id++;
+			}
+		}
+		var b = next_id();
+		for(var i=0;i<10;i++){
+			alert(b());
+		}
+
+		// function* next_id(){
+		// 	var current_id =1;
+		// 	while(true){
+		// 		yield current_id;
+		// 		current_id++;
+		// 	}
+		// }
+		// var b = next_id();
+		// for(var x of b){
+		// 	alert(x);
+		// }
+	</script>
+</body>
+</html>

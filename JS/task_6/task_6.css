@@ -1,0 +1,40 @@
+ul{
+	height: 100px;
+	padding:10px;
+}
+
+li{
+   background-color: red;
+   color:white;
+   font-size: 18px;
+   text-align: center;
+   display:inline;
+   padding: 10px;
+   margin:5px;
+   line-height: 50px;
+}
+
+.dim_li{
+	background-color:blue;
+	color:red;
+	font-size: 20px;
+	font-style: bold;
+}
+.btn_group{
+	height:50px;
+	padding:10px;
+    box-sizing: border-box;
+}
+
+input[name="search"]{
+    width:90px;
+	margin-left: 50px;
+	border-radius:2px; 
+}
+
+textarea{
+	border-radius:6px; 
+	width:180px;
+	height:60px;
+	margin-left: 10px;
+}

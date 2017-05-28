@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form Validate</title>
+	<link rel="stylesheet" type="text/css" href="task_2.css">
+</head>
+<body>
+	<div>
+		<form>
+			<label>
+				<span>姓名</span>
+				<input class="inp-common" type="text" name="name" placeholder="请输入姓名" value=''/>
+				<p style="display:none">必填，长度为4-16个字符</p>
+			</label>	
+			<label>
+				<span>密码</span>
+				<input class="inp-common" type="password" name="pwd" placeholder="请输入密码" value=''/>
+				<p style="display:none">必填，请输入6-20位字母与数字的组合</p>
+			</label>
+			<label>
+				<span>密码确认</span>
+				<input class="inp-common" type="password" name="repwd" placeholder="请再次输入密码" value=''/>
+				<p style="display:none">必填，请再次输入密码</p>
+			</label>
+			<label>
+				<span>邮箱</span>
+				<input class="inp-common" type="text" name="name" placeholder="请输入邮箱" value=''/>
+				<p style="display:none">必填，请输入您的常用邮箱</p>
+			</label>
+			<label>
+				<span>手机</span>
+				<input class="inp-common" type="text" name="name" placeholder="请输入手机号" value=''/>
+				<p style="display:none">必填，请输入您的手机号</p>
+			</label>
+			<input class="inp-common" type="button" name="Validate" value="提交"/>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" src="task_2.js"></script>
+</html>

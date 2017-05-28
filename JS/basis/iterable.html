@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>iterable</title>
+</head>
+<body>
+	<h1>Array、Map、Set都属于iterable类型</h1>
+	<p>Map对象是键值对结合，和JSON对象类似，但是key不仅可以是字符串还可以是对象</p>
+	<p>Set对象类似于数组，且成员的值是唯一的</p>
+	<script type="text/javascript">
+		/*for in循环所有的属性，name也输出*/
+		// var a = ['a','b','c'];
+		// a.name = 'hello';
+		// for(var x in a){   //0,1,2,hello
+		// 	alert(x);
+		// }
+
+		/*for of*/
+		// var a = ['a','b','c'];
+		// a.name = 'hello';
+		// for(var x of a){
+		// 	alert(x);         //a,b,c
+		// }
+
+		/*forEach 对每个元素调用回调函数*/
+		// var a = ['a','b','c'];
+		// a.forEach(function(ele,index,arr){
+		// 	alert(index);
+		// 	alert(ele);
+		// 	alert(arr);
+		// })
+
+		/*rest 获取多余的参数  数组形式交给变量rest*/
+		// function foo(a,b, ...rest){
+		// 	alert(a);
+		// 	alert(b);
+		// 	alert(rest);
+		// }
+		// foo(1,2,3,4,5);
+
+		// function sum(...rest){
+		// 	if(rest.length ==0){
+		// 		return 0;
+		// 	}
+		// 	var result = 0;
+		// 	for(var x of rest){
+		// 		result += x;
+		// 	}
+		// 	alert(result);
+		// }
+		// sum(1,2,3);
+
+		function area_of_circle(r,pi){
+			var s =0;
+			if(arguments.length == 0){
+				alert('请输入半径');
+			}else{
+				if(arguments.length ==1){
+					alert(s = r*r*3.14);
+				}else{
+					alert(s = r*r*pi);
+				}
+			}
+		}
+
+		area_of_circle(1,2,4);
+	</script>
+</body>
+</html>

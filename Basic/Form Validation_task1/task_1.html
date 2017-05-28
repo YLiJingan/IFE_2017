@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form Validate</title>
+	<style type="text/css">
+		input{
+			height:27px;
+			border-radius: 4px;
+		}
+		input[type='text']{
+			border:1px #e1e1e1 solid;
+			margin: 0 13px;
+			width:200px;
+			padding-left: 6px;
+		}
+		input[type='button']{
+			background-color: #2f79ba;
+			border:none;
+			color:#FFF;
+			width:50px;
+		}
+		p{
+			color:#d2d2d2;
+			font-size: 12px;
+			padding:0px;
+			margin:0px;
+			margin-left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label>
+			<span>姓名</span>
+			<input type="text" name="name" placeholder="请输入姓名" value=''/>
+			<input type="button" name="Validate" value="验证">
+		</label>
+			<p>必填，长度为4-16个字符</p>
+	</form>
+	<script type="text/javascript">
+		var username = document.getElementsByName('name')[0];
+		var btn = document.getElementsByTagName('input')[1];
+		var mesg = document.getElementsByTagName("p")[0];
+		function nameFun(){
+			if(username.value == ''){
+				username.style.border = "1px red solid";
+				mesg.innerHTML = '姓名不能为空';
+				mesg.style.color = 'red';
+			}else{
+				var len = 0;
+				for(var i=0;i<username.value.length;i++){
+					var sum = username.value.charCodeAt(i);
+					if(sum<0x00 || sum>0xFF){
+						len +=2;                       /*中文为两个字符*/
+					}else{
+						len++;
+					}
+				}
+				if(len<4 || len>16){
+					username.style.border = "1px red solid";
+					mesg.innerHTML = '长度为4-16个字符';
+					mesg.style.color = 'red';
+				}else{
+					username.style.border = "1px green solid";
+					mesg.innerHTML = '名称格式正确';
+					mesg.style.color = 'green';
+				}
+			}
+		}
+		btn.onclick = function(){
+			nameFun();
+		}
+	</script>
+</body>
+</html>
