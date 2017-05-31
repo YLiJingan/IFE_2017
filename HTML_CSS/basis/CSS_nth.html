@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>css3结构化伪类</title>
+	<style type="text/css">
+		span{
+			height:2rem;
+			width:2rem;
+			background-color: blue;
+			display:inline-block;
+		}
+		span:nth-child(-2n+3){
+			background-color: red;
+			border-radius:50%;
+			background-color:rgba(221,123,142,0.8);
+		}
+		#triangle-up { 
+			width: 0;   
+			height:0;  
+			border-top: 40px solid #ADFF2F;  
+			border-right: 40px solid #BA55D3;   
+			}
+		p{
+			width: 40px;   
+			height:40px;  
+			border-top: 40px solid #ADFF2F;  
+			border-right: 40px solid #BA55D3;  
+		}
+        #demo{
+        	 width:0px;  
+			 height:0px;  
+			 border:40px solid transparent;
+			 border-bottom:80px solid red;
+			 border-left: 0px;
+        }
+        a{
+        	cursor:not-allowed;
+        }
+
+	</style>
+</head>
+<body>
+	<span></span>
+	<span></span>
+	<span>11</span>
+	<span></span>
+	<span>22</span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<div id="triangle-up"></div>
+	<p></p>
+	<div id="demo"></div>
+	<a href="###">aaa</a>
+	<input type="text" name="aa" required="true">
+	<input type="text" name="zz" list="ss">
+	<datalist id="ss">
+	    <select>
+	    	<option value="Bese oksdos"></option>
+			<option value="sdscfxvc"></option>
+			<option value="fbvgb"></option>
+			<option value="fgftbhfc"></option>
+	    </select>
+	</datalist>
+	<input type="email" name="email">
+	<input type="color" name="aaa">
+	<input type="date" name="date">
+	<input type="month" name="sss">
+	<input type="week" name="sds">
+	<input type="time" name="ss">
+	<input type="range" name="dd" id="howyourate" min="1" max="10" value="5" onchange="showValue(this.value)">
+	<i id="range">5</i>
+	<script type="text/javascript">
+		function showValue(newValue){
+			document.getElementById("range").innerHTML = newValue;
+		}
+	</script>
+</body>
+</html>

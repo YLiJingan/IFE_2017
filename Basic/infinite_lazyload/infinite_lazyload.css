@@ -34,8 +34,11 @@ ul{
 }
 .content .content_block{
     height:40px;
-    background-color: #eeeaea;
+    background-color: #e0dbdb;
 }
 .content .content_top{
     margin-top: 60px;
+}
+.content .content_bottom{
+    line-height: 40px;
 }

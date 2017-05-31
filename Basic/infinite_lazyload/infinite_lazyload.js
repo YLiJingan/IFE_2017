@@ -1,78 +1,71 @@
 /**
  * Created by yan on 2017/5/26.
  */
-/*$(document).ready((function(){
-    var isloaded = false;
-    function isShow($el){
-        var winH = $(window).height(),//获取窗口高度
-            scrollH = $(window).scrollTop(),//获取窗口滚动高度
-            top = $el.offset().top;//获取元素距离窗口顶部偏移高度
-        if(top < scrollH + winH){
-            return true;//在可视范围
-        }else{
-            return false;//不在可视范围
+'use strict';
+
+(function () {
+
+    var list = document.querySelector('#list');
+    var bm = document.querySelector(".content_bottom");
+    const num = 20; //每次向后端获取数据的数量
+    var current = 0; //下次获取数据的起始序号
+
+    var isAddItem = false; //是否正在添加列表
+
+    //获取数据渲染列表
+    function render() {
+        if (!isAddItem) {
+            isAddItem=true;
+            getdata(num, current).then(function (data) {
+                bm.innerHTML = '正在加载中...';
+                //创建一个元素块
+                var block = document.createDocumentFragment();
+                data.forEach(function (item) {
+                    var li = document.createElement('li');
+                    li.innerText = item;
+                    block.appendChild(li);
+                });
+                list.appendChild(block);
+                current += num;
+                isAddItem=false;
+            }).catch(function (err) {
+                console.log(err);
+            });
         }
     }
 
-    $(window).on('scroll', function(){//监听滚动事件
-        checkShow();
-    })
-    checkShow();
-    function checkShow(){//检查元素是否在可视范围内
-        $('li').each(function(){//遍历每一个元素
-            var $cur = $(this);
-            if(!!isloaded($cur)){return;}//判断是否已加载
-            if (isShow($cur)) {
-                setTimeout(function(){
-                    showContent($cur);
-                },300)//设置时间是为了更好的看出效果
-            };
+    //模拟从后端获取数据,返回一个Promise对象
+    function getdata(num, curret) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                var data = [];
+                for (var i = current; i < current + num; i++) {
+                    data.push(i + 21);
+                }
+                resolve(data);
+            }, 2200);
         });
     }
-    function showContent($el){
 
-    }
-})*/
+    //初始化界面和绑定scoll事件处理程序
+    function init() {
+        render();
 
-$(function(){
-    var count=1;
-    var it=true;
-    $(function(){
+        window.addEventListener('scroll', function () {
+            //计算滚动条到底部的距离
+            var totalHeight = document.body.scrollHeight;  //元素的总高度
+            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;   //被隐藏上方像素   
+            var clientHeight=document.documentElement.clientHeight;   //浏览器视口高度
 
-        for(var i =0;i<30;i++){
-            $('.comment_list').append('<li>item'+count+++'</li>');
-        }
-        setTimeout(function(){
-            $('#container').append("<div class='footer'></div>");
-        },100)
-        $(window).scroll(function(){
-            if(it){
-                var win_sc=$(this).scrollTop();
-                var win_height=$(window).innerHeight();
-                if(win_sc+win_height==$(document).height()){
-                    it=false;
-                    $('.footer').append("<div class='spinner'>"+
-                        "<div class='box box_1'></div>"+
-                        "<div class='box box_2'></div>"+
-                        "<div class='box box_3'></div>"+
-                        "<div class='box box_4'></div>"+
-                        "<div class='box box_5'></div>"+
-                        "</div>")
-                    setTimeout(add,2000);
-                    setTimeout(function(){
-                        $('#container').append("<div class='footer'></div>");
-                    },2100);
-                }
+            var bottom = totalHeight-scrollTop-clientHeight;
+            //console.log(bottom);
+            //已解决重复渲染问题
+            if (bottom < 100) {
+                render();
             }
-
-        })
-    })
-
-    function add (){
-        for(var i =0;i<10;i++){
-            $('.comment_list').append('<li>item'+count+++'</li>');
-        }
-        $('.footer').remove();
-        it=true;
+        });
     }
-})
+
+    init();
+
+})();
