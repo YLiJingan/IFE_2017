@@ -1,0 +1,60 @@
+两列布局:左侧固定  右侧自适应
+
+1、.left{
+      height:200px;
+      width:200px;
+      background-color:red;
+      float:left;
+    }
+    .right{
+      height:200px;
+      background-color:blue;
+      overflow:hidden;      
+      /*触发BFC(隔离的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有一般普通容器没有的一些特性  可以包含浮动的元素，阻止外边距在垂直方向上的叠加，阻止元素被浮动元素所覆盖)*/
+    }
+
+
+2、.left{
+      height:200px;
+      width:200px;
+      background-color:red;
+      float:left;
+    }
+    .right{
+      height:200px;
+      background-color:blue;
+      margin-left:200px;
+    }
+
+
+3、.left{
+      width:200px;
+      height:200px;
+      background-color:red;
+      position:absolute;
+      /*绝对定位会脱离正常文档流  相对于static定位意外的第一个元素进行定位    z-index属性只有元素position属性为absolute或者relative时有效*/
+      top:0;
+      left:0;
+    }
+    .right{
+      height:200px;
+      background-color:blue;
+      margin-left:200px;
+    }
+
+
+
+4、.left{
+      width:200px;
+      height:200px;
+      background-color:red;
+      position:absolute;
+    }
+    .right{
+      height:200px;
+      background-color:blue;
+      position:absolute;
+      width:100%;
+      left:200px;
+    }
+    /*左右两侧均设置position:absolute  右侧设置width:100%; left:200px;*/

@@ -1,0 +1,14 @@
+三栏布局：左右侧固定，中间长度自适应
+
+圣杯布局：
+		1:先把总的位置确定好 width:100 均float:left 保证中间部分自适应
+		2:padding-left padding-right 留出左右侧的位置
+		3:通过 position:relative left right使左右侧回归正确的位置
+
+
+双飞翼布局：
+		1:中间部分外面增加一层div
+		2:中间部分width:100  均float:left 保证中间部分自适应
+		2:margin-left margin-right 留出左右侧的位置
+		3:通过margin-left margin-right使左右侧回归正确的位置
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>column-count</title>
+	<style type="text/css">
+
+		#left-sidebar
+		{
+			width:200px;
+			padding:20px;
+			background-color: red;
+		}
+
+		#contents
+		{
+			-moz-box-flex:1;
+			-webkit-box-flex:1;
+			padding:20px;
+			background-color: yellow;
+		}
+
+		#right-sidebar
+		{
+			width:200px;
+			padding:20px;
+			background-color:green;
+		}
+
+		#left-sidebar,#contents,#right-sidebar
+		{
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:boreder-box;
+		}
+
+		#container
+		{
+			display:-moz-box;
+			display:-webkit-box;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="left-sidebar">
+			<h2>左侧分栏</h2>
+			<ul>
+				<li><a href="#">左侧超链接</a></li>
+				<li><a href="#">左侧超链接</a></li>
+				<li><a href="#">左侧超链接</a></li>
+				<li><a href="#">左侧超链接</a></li>
+				<li><a href="#">左侧超链接</a></li>
+				<li><a href="#">左侧超链接</a></li>
+			</ul>
+		</div>
+		<div id="contents">
+			<h2>内容</h2>
+			<p>示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字</p>
+		</div>
+		<div id="right-sidebar">
+			<h2>右侧分栏</h2>
+				<ul>
+				<li><a href="#">右侧超链接</a></li>
+				<li><a href="#">右侧超链接</a></li>
+				<li><a href="#">右侧超链接</a></li>
+				<li><a href="#">右侧超链接</a></li>
+				<li><a href="#">右侧超链接</a></li>
+				<li><a href="#">右侧超链接</a></li>
+			</ul
+		</div>
+	</div>
+</body>
+</html>
