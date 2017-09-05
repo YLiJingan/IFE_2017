@@ -1,0 +1,19 @@
+1. 定宽 定高 
+    .center{
+    background-color:red;
+    margin:auto;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:20%;
+    height:20%;
+   }
+   优点：无需其他标签,css代码量少
+         支持%属性值和min-/max-属性
+         完美支持图片
+   缺点：必须声明高度
+         建议声明overflow:auto防止移除
+
+2. 

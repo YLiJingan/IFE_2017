@@ -2,7 +2,7 @@
 
 圣杯布局：
 		1:先把总的位置确定好 width:100 均float:left 保证中间部分自适应
-		2:padding-left padding-right 留出左右侧的位置
+		2:最外层父元素设置padding-left padding-right 留出左右侧的位置
 		3:通过 position:relative left right使左右侧回归正确的位置
 
 
