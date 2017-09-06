@@ -1,19 +1,116 @@
-1. 定宽 定高 
+1. 绝对定居中 
     .center{
     background-color:red;
-    margin:auto;
+    margin:auto;      /*在普通文档流中，margin:auto的效果等同于margin-top:0;margin-bottom:0.设置绝对定位后，内容块脱离正常文档流，浏览器会给margin-top,margin-bottom相同的值*/
     position:absolute;
     top:0;
     left:0;
     right:0;
     bottom:0;
     width:20%;
-    height:20%;
+    height:20%;       /*设置宽度或者高度，防止内容块占据所有的可用空间*/
    }
    优点：无需其他标签,css代码量少
          支持%属性值和min-/max-属性
          完美支持图片
    缺点：必须声明高度
-         建议声明overflow:auto防止移除
+         建议声明overflow:auto防止内容越界溢出
 
-2. 
+/****************绝对定居中扩展****************/
+ a.容器内
+   /*设置内容块的父元素为position:relative;*/
+   .main{
+    position:relative;
+    width:500px;
+    height:500px;
+    background-color: yellow;
+   }
+   .center{
+    background-color:red;
+    position:absolute;
+    margin:auto;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width:200px;
+    height:200px;
+   }
+
+ b.视觉区
+   /*设置内容块position:fixed;并设置一个较大的z-index属性*/
+   .center{
+    background-color:red;
+    position:fixed;
+    margin:auto;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width:200px;
+    height:200px;
+    z-index:9999;
+   }
+ 
+ c.边栏
+   /*使用right:0;left:auto,固定于屏幕右侧.*/
+   .center{
+    background-color:red;
+    position:absolute;
+    margin:auto;
+    top:0;
+    left:auto;
+    bottom:0;
+    right:0;
+    width:200px;
+    height:200px;
+    z-index:9999;
+   }
+  /*使用left:0;right:auto,固定于屏幕左侧*/
+   .center{
+    background-color:red;
+    position:absolute;
+    margin:auto;
+    top:0;
+    left:0;
+    bottom:0;
+    right:auto;
+    width:200px;
+    height:200px;
+    z-index:9999;
+   }
+
+  d.响应式
+   /*使用min-width/max-width 和 min-height/max-height*/
+
+2. 负外边距 
+  /*若块元素尺寸已知，可以通过以下方式让内容块居中于容器显示*/ 
+  .center{
+    background-color:red;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:200px;
+    height:200px;
+    margin-left:-100px;
+    margin-top:-100px;
+   }
+
+
+3.Flexbox
+  .main{
+    background-color:red;
+    height:200px;
+    width:200px;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-align-items:center;
+    align-items:center;
+    -webkit-justify-content:center;
+    justify-content:center;
+  }
+  .center{
+    background-color:yellow;
+    width:100px;
+    height:100px;
+  }

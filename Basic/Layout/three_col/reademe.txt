@@ -12,3 +12,28 @@
 		2:margin-left margin-right 留出左右侧的位置
 		3:通过margin-left margin-right使左右侧回归正确的位置
 
+Flexbox:
+		#contents
+        {
+          -moz-box-flex:1;
+          -webkit-box-flex:1;
+          background-color: yellow;
+        }
+
+        #right-sidebar
+        {
+          width:190px;
+          background-color:green;
+        }
+
+        #left-sidebar,#contents,#right-sidebar
+        {
+          -moz-box-sizing:border-box;
+          -webkit-box-sizing:border-box;
+        }
+
+        #container
+        {
+          display:-moz-box;
+          display:-webkit-box;
+        }

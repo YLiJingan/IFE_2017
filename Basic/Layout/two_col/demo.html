@@ -8,12 +8,12 @@
       padding:0;
       margin:0;
     }
-  .left{
+  /*.left{
       width:200px;
       height:200px;
       background-color:red;
       position:absolute;
-      /*绝对定位会脱离正常文档流  相对于static定位意外的第一个元素进行定位    z-index属性只有元素position属性为absolute或者relative时有效*/
+      绝对定位会脱离正常文档流  相对于static定位意外的第一个元素进行定位    z-index属性只有元素position属性为absolute或者relative时有效
       top:0;
       left:0;
     }
@@ -21,11 +21,30 @@
       height:200px;
       background-color:blue;
       margin-left:200px;
+    }*/
+    .container{
+      display:-webkit-flex;
+      display:flex;
+    }
+    nav{
+      width:200px;
+      background-color:red;
+    }
+    .flex-column{
+      -webkit-flex:1;
+      flex:1;
+      background-color:blue;
     }
   </style>
 </head>
 <body>
-  <div class='left'>我是左侧，我是固定的</div>
-  <div class='right'>我是右侧，我想自适应</div>
+  <!-- <div class='left'>我是左侧，我是固定的</div>
+  <div class='right'>我是右侧，我想自适应</div> -->
+  <div class='container'>
+    <nav>我是左侧，我是固定的</nav>
+    <div class='flex-column'>
+      我是右侧，我想自适应我是右侧，我想自适应我是右侧，我想自适应我是右侧，我想自适应
+    </div>
+  </div>
 </body>
 </html>

@@ -10,20 +10,23 @@
     }
    body{
     background-color: green;
-    position:relative;
    }
-   .center{
+   .main{
     background-color:red;
-    width:50%;
-    height:50%;
-    margin:auto;
-    overflow:hidden;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-   }
+    height:200px;
+    width:200px;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-align-items:center;
+    align-items:center;
+    -webkit-justify-content:center;
+    justify-content:center;
+  }
+  .center{
+    background-color:yellow;
+    width:100px;
+    height:100px;
+  }
   </style>
 </head>
 <body>

@@ -58,3 +58,18 @@
       left:200px;
     }
     /*左右两侧均设置position:absolute  右侧设置width:100%; left:200px;*/
+
+5. Flexbox
+    .container{
+      display:-webkit-flex;  /*设为伸缩容器*/
+      display:flex;
+    }
+    nav{
+      width:200px;           /*定宽*/
+      background-color:red;
+    }
+    .flex-column{
+      -webkit-flex:1;        /*占比为1，填充剩余空间*/
+      flex:1;
+      background-color:blue;
+    }
